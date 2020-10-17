@@ -6,6 +6,7 @@
 let principal = 200000;
 let interestRate = 0.05;
 let years = 30;
+let name = "Mina";
 
 // 🏡 Task 1.5: Simple Math
 /* To create a monthly mortgage rate calculator, we need to know the number of years in months and the monthly interest rate. 
@@ -21,12 +22,16 @@ var periods = years * 12;
 
 M = P [ I ( 1 + I )^N ] / [ ( 1 + I )^N – 1 ]
 
+P = principal
+I = interestRate
+N = periods
+
 Hint: while these calculations can be done in one line, it might be helpful to create seperate variables to hold parts of your equation. That might look like this:
 
 (1) Create a variable called n1 and set it equal to  (1 + monthlyInterestRate )^N
 
  
-let n1 = (1 + monthlyInterestRate) ** N
+let n1 = (1 + monthlyInterestRate)** N
 
 
 (2) Create a variable called numerator and set it equal to p * n1 * monthlyInterestRate
@@ -37,15 +42,22 @@ let numerator = p * n1 * monthlyInterestRate
 
 (3) Create a variable called denominator and set it equal to n1 - 1 
 
-let denominator = n -1
-
 let denominator = n1 - 1
+
+
 (4) Create a variable called monthlyRate and set it equal to numerator/denominator
+
+let monthlyRate = numerator % denominator
 
 Hint #2: you'll need to use the `math` object for parts of this calculation!
 
 When your math is correct, monthlyRate will equal 1073.64
 */
+
+let n1 = (1 + monthlyInterestRate) ** N;
+let numerator = p * n1 * monthlyInterestRate;
+let denominator = n1 - 1;
+let monthlyRate = numerator % denominator;
 
 // 🏡 Task 3: Function
 /* Create a function called `mortgageCalculator` that combines all of the steps from task 1 and 2 and returns a sentence "{Name}, your monthly rate is ${monthlyRate}"
