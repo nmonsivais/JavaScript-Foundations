@@ -46,10 +46,15 @@ var monthlyRate = (numerator / denominator).toFixed(2);
 
 
 // 🏡 Task 3: Function
-/* Create a function called `mortgageCalculator` that combines all of the steps from task 1 and 2 and returns a sentence "{Name}, your monthly rate is ${monthlyRate}"
+// Create a function called `mortgageCalculator` that combines all of the steps from task 1 and 2 and returns a sentence "{Name}, your monthly rate is ${monthlyRate}"
 
-If your name is `Oscar` mortgageCalculator() should return "Oscar, your monthly rate is 1073.64"
-*/
+function mortgageCalculator() {
+    return (name + ", your monthly rate is " + monthlyRate);
+}
+mortgageCalculator();
+
+// If your name is `Oscar` mortgageCalculator() should return "Oscar, your monthly rate is 1073.64"
+
 
 
 
