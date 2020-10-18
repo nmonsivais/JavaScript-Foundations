@@ -32,11 +32,11 @@ var periods = years * 12;
 // (1) Create a variable called n1 and set it equal to  (1 + monthlyInterestRate )^N
 var n1 = Math.pow((1 + monthlyInterestRate), periods);
 // (2) Create a variable called numerator and set it equal to p * n1 * monthlyInterestRate
-var numerator = principal * n1 * monthlyInterestRate;
+var numerator = (principal * n1 * monthlyInterestRate);
 // (3) Create a variable called denominator and set it equal to n1 - 1
-
+var denominator = (n1 - 1);
 // (4) Create a variable called monthlyRate and set it equal to numerator/denominator
-
+var monthlyRate = (numerator / denominator).toFixed(2);
 // Hint #2: you'll need to use the `math` object for parts of this calculation!
 
 // When your math is correct, monthlyRate will equal 1073.64
