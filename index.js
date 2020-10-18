@@ -4,20 +4,15 @@
 /* Create variables for principal, interest rate, and years. Assign them the values 200000, 0.05, and 30 respectively. Create another value called name and give it the value of your own name.
 */
 
-var principal = 200000;
-var interestRate = 0.05;
-var years = 30;
-var name = "Tro";
+
 
 
 // 🏡 Task 1.5: Simple Math
 // To create a monthly mortgage rate calculator, we need to know the number of years in months and the monthly interest rate.  
 
 // (1) Create a variable called `monthlyInterestRate` and give it the value of interest rate divided by 12. 
-var monthlyInterestRate = interestRate / 12;
 
 // (2) Create another variable called `periods` and give it the value of years*12.
-var periods = years * 12;
 
 
 
@@ -30,13 +25,13 @@ var periods = years * 12;
 // Hint: while these calculations can be done in one line, it might be helpful to create seperate variables to hold parts of your equation. That might look like this:
 
 // (1) Create a variable called n1 and set it equal to  (1 + monthlyInterestRate )^N
-var n1 = Math.pow((1 + monthlyInterestRate), periods);
+
 // (2) Create a variable called numerator and set it equal to p * n1 * monthlyInterestRate
-var numerator = (principal * n1 * monthlyInterestRate);
+
 // (3) Create a variable called denominator and set it equal to n1 - 1
-var denominator = (n1 - 1);
+
 // (4) Create a variable called monthlyRate and set it equal to numerator/denominator
-var monthlyRate = (numerator / denominator).toFixed(2);
+
 // Hint #2: you'll need to use the `math` object for parts of this calculation!
 
 // When your math is correct, monthlyRate will equal 1073.64
@@ -48,24 +43,50 @@ var monthlyRate = (numerator / denominator).toFixed(2);
 // 🏡 Task 3: Function
 // Create a function called `mortgageCalculator` that combines all of the steps from task 1 and 2 and returns a sentence "{Name}, your monthly rate is ${monthlyRate}"
 
+var principal = 200000;
+var interestRate = 0.05;
+var years = 30;
+var name = "Tro";
+var periods = years * 12;
+
 function mortgageCalculator() {
+
+    var monthlyInterestRate = interestRate / 12;
+    var n1 = Math.pow((1 + monthlyInterestRate), periods);
+    var numerator = (principal * n1 * monthlyInterestRate);
+    var denominator = (n1 - 1);
+    var monthlyRate = (numerator / denominator).toFixed(2);
+
     return (name + ", your monthly rate is " + monthlyRate);
 }
 mortgageCalculator();
 
 // If your name is `Oscar` mortgageCalculator() should return "Oscar, your monthly rate is 1073.64"
 
-
-
-
-
-
 // 🏡 Task 4: Arguments and Parameters
-/* Substitute the variables in your functions for parameters such that you can substitute `P`, `I`, and `N` when you call the function.
+// Substitute the variables in your functions for parameters such that you can substitute `P`, `I`, and `N` when you call the function.
 
-For example,
-mortgageCalculator(200000, 0.05, 30); <-- should return 1,073.64
-*/
+// M = P[I(1 + I) ^ N] / [(1 + I) ^ N – 1]
+var p = parseInt("");
+var i = parseInt("");
+var n = parseInt("");
+
+function mortgageCalculator2(p, i, n) {
+
+    var n = n * 12;
+    var n2 = Math.pow((1 + (i / 12)), n);
+    var numerator2 = (p * n2 * (i / 12));
+    var denominator2 = (n2 - 1);
+    var monthlyRate2 = (numerator2 / denominator2).toFixed(2);
+
+    return (name + ", your monthly rate is " + monthlyRate2);
+}
+mortgageCalculator2();
+
+
+// For example,
+// mortgageCalculator(200000, 0.05, 30); <-- should return 1,073.64
+
 
 
 
